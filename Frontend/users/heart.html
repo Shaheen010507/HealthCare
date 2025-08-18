@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="heart.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Heart Disease Prediction</h2>
+        <form id="heartForm">
+            <input type="number" placeholder="Age" id="age" required>
+            <input type="number" placeholder="Sex (1=Male, 0=Female)" id="sex" required>
+            <input type="number" placeholder="Chest Pain Type" id="cp" required>
+            <input type="number" placeholder="Resting Blood Pressure" id="trestbps" required>
+            <input type="number" placeholder="Cholesterol" id="chol" required>
+            <input type="number" placeholder="Fasting Blood Sugar > 120 mg/dl (1=True, 0=False)" id="fbs" required>
+            <input type="number" placeholder="Rest ECG" id="restecg" required>
+            <input type="number" placeholder="Max Heart Rate Achieved" id="thalach" required>
+            <input type="number" placeholder="Exercise Induced Angina (1=Yes, 0=No)" id="exang" required>
+            <input type="number" placeholder="Oldpeak (ST depression)" id="oldpeak" step="0.1" required>
+            <input type="number" placeholder="Slope of Peak Exercise ST Segment" id="slope" required>
+            <input type="number" placeholder="Number of Major Vessels (0-3)" id="ca" required>
+            <input type="number" placeholder="Thal (1=Normal, 2=Fixed Defect, 3=Reversible Defect)" id="thal" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script src="heart.js"></script>
+</body>
+</html>

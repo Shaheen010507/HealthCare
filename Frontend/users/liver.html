@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Liver Disease Prediction</title>
+  <link rel="stylesheet" href="liver.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1>Liver Disease Prediction</h1>
+
+      <form id="liverForm" autocomplete="off">
+        <div class="row">
+          <label>Age</label>
+          <input id="age" type="number" min="1" max="120" required />
+        </div>
+
+        <div class="row">
+          <label>Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="1">Male (1)</option>
+            <option value="0">Female (0)</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Total Bilirubin</label>
+          <input id="total_bilirubin" type="number" step="0.1" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Direct Bilirubin</label>
+          <input id="direct_bilirubin" type="number" step="0.1" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Alkaline Phosphotase</label>
+          <input id="alkaline_phosphotase" type="number" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Alamine Aminotransferase (ALT)</label>
+          <input id="alamine_aminotransferase" type="number" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Aspartate Aminotransferase (AST)</label>
+          <input id="aspartate_aminotransferase" type="number" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Total Proteins</label>
+          <input id="total_proteins" type="number" step="0.1" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Albumin</label>
+          <input id="albumin" type="number" step="0.01" min="0" required />
+        </div>
+
+        <div class="row">
+          <label>Albumin &amp; Globulin Ratio</label>
+          <input id="albumin_and_globulin_ratio" type="number" step="0.01" min="0" required />
+        </div>
+
+        <button type="submit" class="btn">Predict</button>
+      </form>
+
+      <p id="result" class="result"></p>
+    </div>
+  </div>
+
+  <script src="liver.js"></script>
+</body>
+</html>

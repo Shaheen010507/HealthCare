@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard - Healthcare</title>
+  <link rel="stylesheet" href="user_style.css"/>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Healthcare</h2>
+      <ul>
+        <li onclick="navigate('dashboard')">Dashboard</li>
+        <li onclick="navigate('profile')">My Profile</li>
+        <li onclick="navigate('diabetes')">Diabetes Prediction</li>
+        <li onclick="navigate('heart')">Heart Disease Prediction</li>
+        <li onclick="navigate('liver')">Liver Disease Prediction</li>
+        <li onclick="navigate('kidney')">Kidney Disease Prediction</li>
+        <li onclick="navigate('cancer')">Breast Cancer Prediction</li>
+        <li onclick="logout()">Logout</li>
+      </ul>
+    </aside>
+
+    <main class="main-content" id="main-content">
+      <h1>Welcome to Healthcare Dashboard</h1>
+      <p>Select a feature from the sidebar.</p>
+    </main>
+  </div>
+
+  <script src="firebase/firebase-config.js"></script>
+  <script src="user_scripts.js"></script>
+</body>
+</html>

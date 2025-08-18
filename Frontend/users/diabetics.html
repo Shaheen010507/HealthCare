@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="diabetics.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Diabetes Prediction</h2>
+        <form id="diabetesForm">
+            <input type="number" id="pregnancies" placeholder="Pregnancies">
+            <input type="number" id="glucose" placeholder="Glucose" required>
+            <input type="number" id="bloodPressure" placeholder="Blood Pressure">
+            <input type="number" id="skinThickness" placeholder="Skin Thickness">
+            <input type="number" id="insulin" placeholder="Insulin">
+            <input type="number" step="0.1" id="bmi" placeholder="BMI">
+            <input type="number" step="0.001" id="dpf" placeholder="Diabetes Pedigree Function">
+            <input type="number" id="age" placeholder="Age" required>
+            <button type="submit">Predict</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script src="diabetics.js"></script>
+</body>
+</html>

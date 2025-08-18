@@ -1,0 +1,90 @@
+/* Simple clean styling */
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --accent:#2b7be9;
+  --danger:#e74c3c;
+  --success:#2ecc71;
+  --muted:#666;
+  --radius:10px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:#111;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.card{
+  width:100%;
+  max-width:520px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 6px 22px rgba(15,30,60,0.08);
+  padding:22px;
+}
+
+h1{
+  margin:0 0 14px 0;
+  font-size:20px;
+  letter-spacing:0.2px;
+}
+
+form .row{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:10px;
+}
+
+label{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+input[type=number],
+select{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6eefc;
+  background:#fbfdff;
+  font-size:14px;
+  outline:none;
+}
+
+input[type=number]:focus,
+select:focus{
+  border-color:var(--accent);
+  box-shadow:0 4px 18px rgba(43,123,233,0.08);
+}
+
+.btn{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+.btn:hover{filter:brightness(.95)}
+
+.result{
+  margin-top:14px;
+  font-weight:700;
+  text-align:center;
+}
