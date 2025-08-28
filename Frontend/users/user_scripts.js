@@ -20,8 +20,8 @@ function navigate(page) {
     case 'kidney':
       window.location.href = 'kidney.html';
       break;
-    case 'cancer':
-      window.location.href = 'cancer.html';
+    case 'breast':
+      window.location.href = 'breast.html';
       break;
     default:
       alert('Page not found!');

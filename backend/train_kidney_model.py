@@ -1,7 +1,7 @@
-# train_liver_model.py
+# train_kidney_model.py
 
 import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
 import xgboost as xgb
 import joblib
@@ -9,7 +9,7 @@ import joblib
 # ---------------------------
 # Step 1: Load Dataset
 # ---------------------------
-df = pd.read_csv('liver.csv')  # Replace with your CSV file path
+df = pd.read_csv("chronic_kidney_diseas.csv")  # Replace with your CSV path
 print("Dataset Loaded Successfully!")
 print("Shape:", df.shape)
 print(df.head())
@@ -17,15 +17,25 @@ print(df.head())
 # ---------------------------
 # Step 2: Preprocessing
 # ---------------------------
-# Features and Target
-X = df.drop("Dataset", axis=1)  # Target column in your CSV
-y = df["Dataset"]
 
-# Encode categorical column
-X["Gender"] = X["Gender"].map({"Male": 1, "Female": 0})
+# Drop rows with missing target
+df = df.dropna(subset=['Diagnosis'])
 
-# Encode target to 0 and 1
-y = y.map({1: 1, 2: 0})
+# Use Diagnosis directly (already numeric: 1 = CKD, 0 = Not CKD)
+y = df['Diagnosis']
+
+# Drop non-predictive columns
+X = df.drop(["Diagnosis", "PatientID", "DoctorInCharge"], axis=1)
+
+# Handle missing values in features
+# Numeric columns: fill with mean
+numeric_cols = X.select_dtypes(include=["int64", "float64"]).columns
+X[numeric_cols] = X[numeric_cols].fillna(X[numeric_cols].mean())
+
+# Categorical columns: fill with "Unknown" and encode
+categorical_cols = X.select_dtypes(include=["object"]).columns
+for col in categorical_cols:
+    X[col] = X[col].fillna("Unknown").astype("category").cat.codes
 
 # ---------------------------
 # Step 3: Split Data
@@ -38,7 +48,13 @@ print(f"Training Samples: {X_train.shape[0]}, Testing Samples: {X_test.shape[0]}
 # ---------------------------
 # Step 4: Train XGBoost Model
 # ---------------------------
-xgb_model = xgb.XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
+xgb_model = xgb.XGBClassifier(
+    objective="binary:logistic",
+    eval_metric="logloss",
+    use_label_encoder=False,
+    random_state=42
+)
+
 xgb_model.fit(X_train, y_train)
 
 # ---------------------------
@@ -52,5 +68,6 @@ print("Classification Report:\n", classification_report(y_test, y_pred))
 # ---------------------------
 # Step 6: Save the Model
 # ---------------------------
-joblib.dump(xgb_model, 'liver_xgb_model.pkl')
-print("\nModel saved as 'liver_xgb_model.pkl'")
+joblib.dump(xgb_model, "kidney_xgb_model.pkl")
+print("\nModel saved as 'kidney_xgb_model.pkl'")
+

@@ -1,5 +1,5 @@
 
-document.getElementById("diabetesForm").addEventListener("submit", async function(e) {
+/*document.getElementById("diabetesForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     // Get values from form
@@ -36,6 +36,50 @@ document.getElementById("diabetesForm").addEventListener("submit", async functio
             document.getElementById("result").textContent = "Error: " + result.error;
         }
     } catch (error) {
+        document.getElementById("result").textContent = "Failed to connect to server.";
+    }
+});*/
+document.getElementById("diabetesForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+        Pregnancies: parseInt(document.getElementById("pregnancies").value) || 0,
+        Glucose: parseInt(document.getElementById("glucose").value) || 0,
+        BloodPressure: parseInt(document.getElementById("bloodPressure").value) || 0,
+        SkinThickness: parseInt(document.getElementById("skinThickness").value) || 0,
+        Insulin: parseInt(document.getElementById("insulin").value) || 0,
+        BMI: parseFloat(document.getElementById("bmi").value) || 0.0,
+        DiabetesPedigreeFunction: parseFloat(document.getElementById("dpf").value) || 0.0,
+        Age: parseInt(document.getElementById("age").value) || 0
+    };
+
+    if (data.Glucose === 0 || data.Age === 0) {
+        document.getElementById("result").textContent = "Please enter Glucose and Age.";
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:5000/predict_diabetes", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Server response:", result); // 👈 Debugging line
+
+        if (result.prediction !== undefined) {
+            document.getElementById("result").textContent =
+                result.prediction === 1 ? "You may have diabetes." : "You are unlikely to have diabetes.";
+        } else {
+            document.getElementById("result").textContent = "Error: " + (result.error || "Unexpected response");
+        }
+    } catch (error) {
+        console.error("Fetch error:", error); // 👈 Debugging line
         document.getElementById("result").textContent = "Failed to connect to server.";
     }
 });

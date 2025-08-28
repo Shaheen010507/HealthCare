@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronic Kidney Disease Prediction</title>
+  <link rel="stylesheet" href="kidney.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Chronic Kidney Disease Prediction</h1>
+    <form id="kidneyForm">
+      
+      <label>Age:</label>
+      <input type="number" name="age" required>
+
+      <label>Blood Pressure (bp):</label>
+      <input type="number" name="bp" required>
+
+      <label>Specific Gravity (sg):</label>
+      <input type="number" step="0.01" name="sg" required>
+
+      <label>Albumin (al):</label>
+      <input type="number" name="al" required>
+
+      <label>Sugar (su):</label>
+      <input type="number" name="su" required>
+
+      <label>Red Blood Cells (rbc):</label>
+      <select name="rbc">
+        <option value="0">Normal</option>
+        <option value="1">Abnormal</option>
+      </select>
+
+      <label>Pus Cell (pc):</label>
+      <select name="pc">
+        <option value="0">Normal</option>
+        <option value="1">Abnormal</option>
+      </select>
+
+      <label>Pus Cell Clumps (pcc):</label>
+      <select name="pcc">
+        <option value="0">Not Present</option>
+        <option value="1">Present</option>
+      </select>
+
+      <label>Bacteria (ba):</label>
+      <select name="ba">
+        <option value="0">Not Present</option>
+        <option value="1">Present</option>
+      </select>
+
+      <label>Hypertension (htn):</label>
+      <select name="htn">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <label>Diabetes Mellitus (dm):</label>
+      <select name="dm">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <label>Coronary Artery Disease (cad):</label>
+      <select name="cad">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <label>Appetite:</label>
+      <select name="appetite">
+        <option value="0">Poor</option>
+        <option value="1">Good</option>
+      </select>
+
+      <label>Pedal Edema (pe):</label>
+      <select name="pe">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <label>Anemia (ane):</label>
+      <select name="ane">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <button type="submit">Predict CKD</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+  <script src="kidney.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breast Cancer Prediction</title>
+  <link rel="stylesheet" href="breast.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Breast Cancer Prediction</h2>
+    <form id="breastForm">
+      <label>Clump Thickness:</label>
+      <input type="number" step="any" name="clump_thickness" required>
+
+      <label>Uniformity of Cell Size:</label>
+      <input type="number" step="any" name="uniformity_cell_size" required>
+
+      <label>Uniformity of Cell Shape:</label>
+      <input type="number" step="any" name="uniformity_cell_shape" required>
+
+      <label>Marginal Adhesion:</label>
+      <input type="number" step="any" name="marginal_adhesion" required>
+
+      <label>Single Epithelial Cell Size:</label>
+      <input type="number" step="any" name="single_epithelial_cell_size" required>
+
+      <label>Bare Nuclei:</label>
+      <input type="number" step="any" name="bare_nuclei" required>
+
+      <label>Bland Chromatin:</label>
+      <input type="number" step="any" name="bland_chromatin" required>
+
+      <label>Normal Nucleoli:</label>
+      <input type="number" step="any" name="normal_nucleoli" required>
+
+      <label>Mitoses:</label>
+      <input type="number" step="any" name="mitoses" required>
+
+      <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+  </div>
+  <script src="breast.js"></script>
+</body>
+</html>
