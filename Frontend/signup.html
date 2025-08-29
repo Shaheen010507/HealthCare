@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up – VitaminD AI</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
   <div class="container">
@@ -16,6 +18,14 @@
     <input type="password" id="confirmPassword" placeholder="Confirm Password" required /><br><br>
 
     <button onclick="signup()">Sign Up</button>
+
+    <p>Or sign up with</p>
+
+    <div class="social-login">
+      <button class="google-btn" onclick="googleLogin()">Sign up with Google</button>
+      
+    </div>
+
     <p>Already have an account? <a href="login.html">Login here</a></p>
 
     <p id="signup-msg" style="color: red;"></p>
@@ -30,3 +40,5 @@
   <script src="scripts/auth.js"></script>
 </body>
 </html>
+
+

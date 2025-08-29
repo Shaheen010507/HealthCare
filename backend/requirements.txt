@@ -1,5 +1,8 @@
-Flask
-pandas
+flask
+flask-cors
 numpy
 scikit-learn
-gunicorn
+joblib
+xgboost
+
+
