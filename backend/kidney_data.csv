@@ -1,0 +1,11 @@
+Age,BP,SG,Albumin,Sugar,RBC,PusCell,PusCellClumps,Bacteria,HTN,DM,CAD,Appetite,PE,Anemia,Risk
+35,80,1.025,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Poor,No,No,Low Risk
+40,85,1.02,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No,No,Low Risk
+50,95,1.015,2,1,Normal,Normal,Not Present,Not Present,Yes,No,No,Good,No,No,Low Risk
+60,110,1.01,3,2,Abnormal,Abnormal,Present,Present,Yes,Yes,No,Poor,Yes,Yes,High Risk
+65,115,1.005,4,3,Abnormal,Abnormal,Present,Present,Yes,Yes,No,Poor,Yes,Yes,High Risk
+55,100,1.015,1,1,Normal,Normal,Not Present,Not Present,Yes,No,No,Good,No,No,Low Risk
+45,90,1.02,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No,No,Low Risk
+52,95,1.01,2,1,Normal,Normal,Not Present,Not Present,Yes,No,No,Good,No,No,Low Risk
+58,105,1.01,3,2,Abnormal,Abnormal,Present,Present,Yes,Yes,No,Poor,Yes,Yes,High Risk
+62,110,1.005,4,3,Abnormal,Abnormal,Present,Present,Yes,Yes,Yes,Poor,Yes,Yes,High Risk

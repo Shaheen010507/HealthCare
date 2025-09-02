@@ -72,3 +72,37 @@ document.getElementById("liverForm").addEventListener("submit", async (e) => {
     console.error(err);
   }
 });
+// Batch Upload for Liver Prediction
+// ✅ Corrected Batch Upload for Liver Prediction
+/* ---------------- Liver Batch CSV Upload ---------------- */
+// Handle Liver Batch Prediction Upload
+document.getElementById("liverBatchForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("liverFileInput");
+    if (!fileInput.files.length) {
+        alert("Please upload a CSV file!");
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/predict_liver_batch", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("Server error: " + response.status);
+        }
+
+        const data = await response.json();
+        document.getElementById("liverBatchResult").innerHTML =
+            "<pre>" + JSON.stringify(data.predictions, null, 2) + "</pre>";
+    } catch (error) {
+        document.getElementById("liverBatchResult").innerHTML =
+            "<p style='color:red;'>Request failed: " + error.message + "</p>";
+    }
+});

@@ -83,3 +83,71 @@ document.getElementById("diabetesForm").addEventListener("submit", async functio
         document.getElementById("result").textContent = "Failed to connect to server.";
     }
 });
+document.getElementById("batchUploadForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("fileInput");
+    if (!fileInput.files.length) {
+        alert("Please select a file first!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    try {
+        const response = await fetch("http://localhost:5000/predict_batch_diabetes", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+        displayResults(result);
+    } catch (error) {
+        document.getElementById("batchResult").innerHTML =
+          `<p style="color:red;">Error: ${error.message}</p>`;
+    }
+});
+
+/* ---------------- Batch Upload ---------------- */
+document.getElementById("batchUploadForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("fileInput");
+    if (!fileInput.files.length) {
+        alert("Please select a file first!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    try {
+        const response = await fetch("http://localhost:5000/predict_diabetes_batch", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+        displayBatchResults(result);
+    } catch (error) {
+        document.getElementById("batchResult").innerHTML =
+          `<p style="color:red;">Error: ${error.message}</p>`;
+    }
+});
+
+function displayBatchResults(result) {
+    if (result.error) {
+        document.getElementById("batchResult").innerHTML =
+          `<p style="color:red;">Error: ${result.error}</p>`;
+        return;
+    }
+
+    let output = "<h3>Batch Prediction Results:</h3><ul>";
+    result.predictions.forEach((pred, index) => {
+        output += `<li>Patient ${index + 1}: ${pred.result}</li>`;
+    });
+    output += "</ul>";
+
+    document.getElementById("batchResult").innerHTML = output;
+}

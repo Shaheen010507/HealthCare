@@ -88,3 +88,103 @@ select:focus{
   font-weight:700;
   text-align:center;
 }
+.batch-section {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.batch-section h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.batch-section input[type="file"] {
+    margin-right: 10px;
+}
+
+.batch-section button {
+    padding: 5px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.batch-section button:hover {
+    background-color: #2980b9;
+}
+
+.batch-result {
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.batch-result ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.batch-result li {
+    margin-bottom: 5px;
+}
+/* liver bach*/
+#liverBatchResult ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#liverBatchResult li {
+    padding: 5px 0;
+    font-weight: bold;
+}
+/* Batch Upload Section */
+/* Styling for Liver Batch Upload */
+/* Styling for liver batch section */
+#liverBatchSection {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background: #f9fff9;
+    width: 400px;
+}
+
+#liverBatchSection h2 {
+    color: #4CAF50;
+    font-size: 18px;
+}
+
+#liverBatchForm {
+    margin-top: 10px;
+}
+
+#liverBatchForm input, 
+#liverBatchForm button {
+    margin: 5px 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#liverBatchForm button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#liverBatchForm button:hover {
+    background: #45a049;
+}
+
+#liverBatchResult {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+}

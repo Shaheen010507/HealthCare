@@ -57,4 +57,20 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
 }
-
+/* Kidney batch widget styles */
+.kidney-batch {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+.kidney-batch h3 { margin: 0 0 10px; color: #0f766e; }
+.kidney-batch form { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.kidney-batch input[type="file"] { padding: 6px; border: 1px solid #d1d5db; border-radius: 8px; }
+.kidney-batch button {
+  padding: 8px 14px; border: 0; border-radius: 8px; cursor: pointer;
+  background: #0ea5e9; color: #fff;
+}
+.kidney-batch button:hover { background: #0284c7; }
+#kidneyBatchResult { margin-top: 12px; font-size: 14px; }

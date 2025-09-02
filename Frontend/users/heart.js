@@ -38,3 +38,49 @@ document.getElementById("heartForm").addEventListener("submit", async function(e
         document.getElementById("result").style.color = "red";
     }
 });
+/* ---------------- Batch CSV Upload ---------------- */
+document.getElementById("batchHeartForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("heartFileInput");
+    if (!fileInput.files.length) {
+        alert("Please select a file first!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    try {
+        const response = await fetch("http://localhost:5000/predict_heart_batch", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+        displayHeartBatchResults(result);
+    } catch (error) {
+        document.getElementById("batchHeartResult").innerHTML =
+          `<p style="color:red;">Error: ${error.message}</p>`;
+    }
+});
+
+function displayHeartBatchResults(result) {
+    if (result.error) {
+        document.getElementById("batchHeartResult").innerHTML =
+          `<p style="color:red;">Error: ${result.error}</p>`;
+        return;
+    }
+
+    let output = "<h3>Batch Prediction Results:</h3><ul>";
+    result.predictions.forEach((pred, index) => {
+        // Determine text and color based on prediction
+        let text = pred.prediction === 1 ? "Heart Disease Detected" : "No Heart Disease";
+        let color = pred.prediction === 1 ? "red" : "green";
+
+        output += `<li style="color:${color}">Patient ${index + 1}: ${text}</li>`;
+    });
+    output += "</ul>";
+
+    document.getElementById("batchHeartResult").innerHTML = output;
+}

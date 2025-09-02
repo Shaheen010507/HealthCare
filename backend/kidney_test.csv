@@ -1,0 +1,7 @@
+Age,Blood_Pressure,Specific_Gravity,Albumin,Sugar,Red_Blood_Cells,Pus_Cell,Pus_Cell_Clumps,Bacteria,Hypertension,Diabetes_Mellitus,Coronary_Artery_Disease,Appetite,Pedal_Edema
+45,80,1.020,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+50,85,1.015,2,1,Normal,Normal,Not Present,Not Present,No,Yes,No,Poor,No
+60,90,1.025,3,0,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+55,88,1.010,4,2,Normal,Normal,Not Present,Not Present,Yes,No,No,Poor,No
+62,95,1.030,5,3,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+42,78,1.020,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No

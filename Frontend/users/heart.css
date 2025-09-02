@@ -44,3 +44,60 @@ button:hover {
     text-align: center;
     font-weight: bold;
 }
+/* ---------------- Heart Disease Batch Upload Styling ---------------- */
+#batchHeartSection {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #d32f2f;
+    border-radius: 10px;
+    background-color: #ffebee;
+    max-width: 600px;
+}
+
+#batchHeartSection h2 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+}
+
+#batchHeartSection form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#batchHeartSection input[type="file"] {
+    flex: 1;
+    padding: 5px;
+}
+
+#batchHeartSection button {
+    padding: 6px 15px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#batchHeartSection button:hover {
+    background-color: #b71c1c;
+}
+
+#batchHeartResult {
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+}
+
+#batchHeartResult ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#batchHeartResult li {
+    background-color: #ffcdd2;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border-left: 5px solid #d32f2f;
+}

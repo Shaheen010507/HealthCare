@@ -1,0 +1,11 @@
+Age,Gender,Total_Bilirubin,Direct_Bilirubin,Alkaline_Phosphotase,Alamine_Aminotransferase,Aspartate_Aminotransferase,Total_Proteins,Albumin,Albumin_and_Globulin_Ratio
+60,Male,5.1,2.6,555,150,170,4.5,1.5,0.5
+62,Female,5.3,2.7,580,145,165,4.4,1.6,0.5
+61,Male,5.5,2.8,570,155,175,4.6,1.5,0.4
+63,Female,5.2,2.5,560,148,168,4.7,1.6,0.5
+65,Male,5.6,2.9,590,160,180,4.3,1.5,0.4
+64,Female,5.4,2.7,585,152,172,4.5,1.5,0.5
+66,Male,5.7,3.0,595,165,185,4.2,1.4,0.4
+67,Female,5.5,2.8,580,158,178,4.6,1.5,0.5
+
+
