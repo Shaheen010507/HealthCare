@@ -70,27 +70,40 @@ function displayKidneyResults(result) {
 }
 */
 
-document.getElementById("kidneyBatchForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
 
-    const fileInput = document.getElementById("kidneyFileInput");
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+// Handle Batch Prediction
+// Handle Batch Prediction
+document.getElementById("uploadBtn").addEventListener("click", async function() {
+  let fileInput = document.getElementById("fileInput");
+  if (!fileInput.files.length) {
+    alert("Please select a CSV file first.");
+    return;
+  }
 
-    try {
-        const response = await fetch("/predict_kidney_batch", {
-            method: "POST",
-            body: formData
-        });
+  let formData = new FormData();
+  formData.append("file", fileInput.files[0]);
 
-        const data = await response.json(); // ✅ Will fail if Flask sends HTML
+  try {
+    let response = await fetch("http://127.0.0.1:5000/predict_batch_kidney", {
+      method: "POST",
+      body: formData
+    });
 
-        if (data.error) {
-            alert("Error: " + data.error);
-        } else {
-            alert("Batch Prediction Results:\n" + data.batch_results.join("\n"));
-        }
-    } catch (err) {
-        alert("Error parsing response: " + err);
+    let result = await response.json();
+    let resultDiv = document.getElementById("batchResult");
+    resultDiv.innerHTML = "<h4>Batch Prediction Results:</h4>";
+
+    if (result.results) {
+      result.results.forEach((res, index) => {
+        let p = document.createElement("p");
+        p.textContent = `Patient ${index + 1}: ${res}`;
+        resultDiv.appendChild(p);
+      });
+    } else {
+      resultDiv.innerHTML += `<p style="color:red;">Error: ${result.error}</p>`;
     }
+  } catch (error) {
+    alert("Error connecting to backend! Make sure Flask is running.");
+    console.error(error);
+  }
 });

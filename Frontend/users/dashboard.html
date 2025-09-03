@@ -1,46 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>User Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Prediction Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
   <header>
-    <h1>Welcome to Your Health Dashboard</h1>
-    <div class="user-info">
-      <p>Hello, <span id="username">User</span>!</p>
-      <button onclick="logout()">Logout</button>
-    </div>
+    <h1>AI-as-a-Service: Healthcare Predictions</h1>
   </header>
 
+  <nav>
+    <button class="tab-btn active" data-tab="diabetes">Diabetes</button>
+    <button class="tab-btn" data-tab="heart">Heart</button>
+    <button class="tab-btn" data-tab="liver">Liver</button>
+    <button class="tab-btn" data-tab="kidney">Kidney</button>
+    <button class="tab-btn" data-tab="breast">Breast Cancer</button>
+  </nav>
+
   <main>
-    <h2>Select a Prediction Model</h2>
-    <div class="card-container">
-      <div class="card" onclick="goToPredict('diabetes')">Diabetes Prediction</div>
-      <div class="card" onclick="goToPredict('heart')">Heart Disease Prediction</div>
-      <div class="card" onclick="goToPredict('liver')">Liver Disease Prediction</div>
-      <div class="card" onclick="goToPredict('cancer')">Breast Cancer Prediction</div>
-      <div class="card" onclick="goToPredict('kidney')">Kidney Disease Prediction</div>
-    </div>
+    <!-- Diabetes -->
+    <section class="tab-content active" id="diabetes">
+      <h2>Diabetes Prediction</h2>
+      <form id="diabetesForm">
+        <input type="text" placeholder="Glucose Level" name="glucose" required>
+        <input type="text" placeholder="Blood Pressure" name="bp" required>
+        <input type="text" placeholder="BMI" name="bmi" required>
+        <button type="submit">Predict</button>
+      </form>
+      <p id="diabetesResult"></p>
+    </section>
+
+    <!-- Heart -->
+    <section class="tab-content" id="heart">
+      <h2>Heart Disease Prediction</h2>
+      <form id="heartForm">
+        <input type="text" placeholder="Age" name="age" required>
+        <input type="text" placeholder="Cholesterol" name="cholesterol" required>
+        <input type="text" placeholder="Max Heart Rate" name="hr" required>
+        <button type="submit">Predict</button>
+      </form>
+      <p id="heartResult"></p>
+    </section>
+
+    <!-- Liver -->
+    <section class="tab-content" id="liver">
+      <h2>Liver Disease Prediction</h2>
+      <form id="liverForm">
+        <input type="text" placeholder="Age" name="age" required>
+        <input type="text" placeholder="Bilirubin" name="bilirubin" required>
+        <input type="text" placeholder="Albumin" name="albumin" required>
+        <button type="submit">Predict</button>
+      </form>
+      <p id="liverResult"></p>
+    </section>
+
+    <!-- Kidney -->
+    <section class="tab-content" id="kidney">
+      <h2>Chronic Kidney Disease Prediction</h2>
+      <form id="kidneyForm">
+        <input type="text" placeholder="Age" name="age" required>
+        <input type="text" placeholder="Blood Pressure" name="bp" required>
+        <input type="text" placeholder="Albumin" name="albumin" required>
+        <button type="submit">Predict</button>
+      </form>
+      <p id="kidneyResult"></p>
+    </section>
+
+    <!-- Breast -->
+    <section class="tab-content" id="breast">
+      <h2>Breast Cancer Prediction</h2>
+      <form id="breastForm">
+        <input type="text" placeholder="Clump Thickness" name="clump" required>
+        <input type="text" placeholder="Cell Size Uniformity" name="size" required>
+        <input type="text" placeholder="Cell Shape Uniformity" name="shape" required>
+        <button type="submit">Predict</button>
+      </form>
+      <p id="breastResult"></p>
+    </section>
   </main>
 
-  <script>
-    // Get user name from localStorage or Firebase Auth
-    document.getElementById("username").textContent = localStorage.getItem("username") || "User";
-
-    function goToPredict(model) {
-      // Redirect to prediction page with model name as query param
-      window.location.href = `predict.html?model=${model}`;
-    }
-
-    function logout() {
-      localStorage.removeItem("username");
-      // If using Firebase Auth, add signOut logic here
-      window.location.href = "login.html";
-    }
-  </script>
+  <script src="dashboard.js"></script>
 </body>
 </html>

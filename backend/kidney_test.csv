@@ -5,3 +5,36 @@ Age,Blood_Pressure,Specific_Gravity,Albumin,Sugar,Red_Blood_Cells,Pus_Cell,Pus_C
 55,88,1.010,4,2,Normal,Normal,Not Present,Not Present,Yes,No,No,Poor,No
 62,95,1.030,5,3,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
 42,78,1.020,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+49,82,1.010,1,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+58,92,1.025,2,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,No,Poor,Yes
+46,80,1.015,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+53,87,1.020,3,1,Abnormal,Pus Cells,Present,Present,Yes,No,Yes,Poor,No
+61,94,1.030,4,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+47,81,1.010,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+56,89,1.020,2,1,Abnormal,Pus Cells,Present,Present,Yes,Yes,No,Poor,Yes
+44,79,1.015,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+59,93,1.025,3,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+48,83,1.020,1,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+52,86,1.010,2,1,Abnormal,Pus Cells,Present,Present,Yes,No,Yes,Poor,No
+57,90,1.025,4,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+43,78,1.015,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+55,88,1.020,2,1,Abnormal,Pus Cells,Present,Present,Yes,Yes,No,Poor,Yes
+51,85,1.025,1,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+63,95,1.030,3,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+47,80,1.015,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+54,87,1.020,2,1,Abnormal,Pus Cells,Present,Present,Yes,No,Yes,Poor,No
+58,92,1.025,4,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+45,78,1.010,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+60,90,1.025,3,1,Abnormal,Pus Cells,Present,Present,Yes,Yes,No,Poor,Yes
+46,82,1.020,1,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+55,88,1.030,2,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+49,84,1.015,1,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+57,91,1.025,3,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+50,80,1.010,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+61,93,1.030,4,3,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+48,82,1.020,2,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+56,89,1.025,3,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+52,85,1.015,1,1,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+59,92,1.025,4,2,Abnormal,Pus Cells,Present,Present,Yes,Yes,Yes,Poor,Yes
+47,81,1.010,0,0,Normal,Normal,Not Present,Not Present,No,No,No,Good,No
+

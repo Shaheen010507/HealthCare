@@ -738,35 +738,33 @@ def predict_kidney_batch():
 
 """
 ####last try
-@app.route("/predict_csv", methods=["POST"])
-def predict_csv():
+# ----------------- Batch Prediction -----------------
+# ---------------- Batch Prediction Route ----------------
+@app.route('/predict_batch_kidney', methods=['POST'])
+def predict_batch_kidney():
     try:
-        # Get uploaded file
         if 'file' not in request.files:
             return jsonify({"error": "No file uploaded"}), 400
 
         file = request.files['file']
-        df = pd.read_csv(file)
+        data = pd.read_csv(file)
 
-        # Ensure correct columns
-        expected_cols = [
-            "Age", "Blood_Pressure", "Specific_Gravity", "Albumin", "Sugar",
-            "Red_Blood_Cells", "Pus_Cell", "Pus_Cell_Clumps", "Bacteria",
-            "Hypertension", "Diabetes_Mellitus", "Coronary_Artery_Disease",
-            "Appetite", "Pedal_Edema"
-        ]
-        df = df[expected_cols]
+        # Debug print to see what CSV looks like
+        print("CSV Columns:", data.columns.tolist())
+        print("CSV Shape:", data.shape)
 
-        # Predict
-        df['prediction'] = model.predict(df)
-        df['result'] = df['prediction'].apply(lambda x: "CKD Detected" if x==1 else "No CKD")
+        # Convert to numpy
+        predictions = kidney_model.predict(data.values)
 
-        # Convert to JSON
-        results = df.to_dict(orient="records")
-        return jsonify(results)
+        results = ["CKD Detected" if pred == 1 else "No CKD" for pred in predictions]
+
+        return jsonify({"results": results})
 
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+
 ##----------------- Breast Cancer Prediction ----------------
 @app.route('/predict_breast_cancer', methods=['POST'])
 def predict():
@@ -794,7 +792,31 @@ def predict():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+## ----------------- Breast Cancer Batch Prediction ----------------
+@app.route('/predict_breast_batch', methods=['POST'])
+def predict_breast_batch():
+    try:
+        data = request.json
+        batch_features = data.get("batch_features")  # list of lists
 
+        if not batch_features:
+            return jsonify({"error": "No batch data provided"}), 400
+
+        results = []
+        for features in batch_features:
+            if len(features) != 9:
+                results.append("Invalid data")
+                continue
+
+            input_data = np.array([features])
+            prediction = model.predict(input_data)[0]
+            result = "Benign" if prediction == 2 else "Malignant"
+            results.append(result)
+
+        return jsonify(results)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # ---------------- Home ----------------
 @app.route("/", methods=["GET"])
